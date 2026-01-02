@@ -20,7 +20,7 @@ TaskManagerPro is a simple but feature-rich console application that allows user
 
 ## Technologies
 
-- C# .NET 6/7
+- C# .NET 10
 - JSON for data storage
 - Console application
 - Repository + Service design pattern

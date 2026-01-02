@@ -73,6 +73,8 @@ TaskManagerPro
 │  └─ Logger.cs
 │
 └─ Program.cs
+
+
 How It Works
 Program.cs – handles user interaction and displays the console menu.
 

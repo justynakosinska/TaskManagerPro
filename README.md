@@ -32,7 +32,7 @@ TaskManagerPro is a simple but feature-rich console application that allows user
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/YourUsername/TaskManagerPro.git
+   git clone https://github.com/justynakosinska/TaskManagerPro.git
 Open the project in Visual Studio
 
 Set Program.cs as the Startup Project

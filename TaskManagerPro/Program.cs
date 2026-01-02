@@ -13,12 +13,12 @@ class Program
         {
             Console.Clear();
             Console.WriteLine("=== Task Manager Pro ===");
-            Console.WriteLine("1. Pokaż wszystkie zadania");
-            Console.WriteLine("2. Dodaj zadanie");
-            Console.WriteLine("3. Zakończ zadanie");
-            Console.WriteLine("4. Usuń zadanie");
-            Console.WriteLine("5. Wyjście");
-            Console.Write("Wybierz opcję: ");
+            Console.WriteLine("1. Show all tasks");
+            Console.WriteLine("2. Add task");
+            Console.WriteLine("3. Complete task");
+            Console.WriteLine("4. Remove task");
+            Console.WriteLine("5. Exit");
+            Console.Write("Choose an option: ");
 
             string choice = Console.ReadLine();
 
@@ -41,16 +41,16 @@ class Program
                     case "5":
                         return;
                     default:
-                        Console.WriteLine("Nieprawidłowa opcja.");
+                        Console.WriteLine("Invalid option.");
                         break;
                 }
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Błąd: {ex.Message}");
+                Console.WriteLine($"Error: {ex.Message}");
             }
 
-            Console.WriteLine("Naciśnij dowolny klawisz, aby kontynuować...");
+            Console.WriteLine("Press any key to continue...");
             Console.ReadKey();
         }
     }
@@ -60,49 +60,49 @@ class Program
         var tasks = service.GetAll();
         if (!tasks.Any())
         {
-            Console.WriteLine("Brak zadań.");
+            Console.WriteLine("No tasks found.");
             return;
         }
 
         foreach (var task in tasks)
         {
-            Console.WriteLine($"ID: {task.Id} | {task.Title} | Status: {task.Status} | Utworzone: {task.CreatedAt}");
+            Console.WriteLine($"ID: {task.Id} | {task.Title} | Status: {task.Status} | Created: {task.CreatedAt}");
         }
     }
 
     static void AddTask(ITaskService service)
     {
-        Console.Write("Podaj tytuł zadania: ");
+        Console.Write("Enter task title: ");
         string title = Console.ReadLine();
         service.Add(title);
-        Console.WriteLine("Zadanie dodane.");
+        Console.WriteLine("Task added.");
     }
 
     static void CompleteTask(ITaskService service)
     {
-        Console.Write("Podaj ID zadania do zakończenia: ");
+        Console.Write("Enter the ID of the task to complete: ");
         if (int.TryParse(Console.ReadLine(), out int id))
         {
             service.Complete(id);
-            Console.WriteLine("Zadanie zakończone.");
+            Console.WriteLine("Task completed.");
         }
         else
         {
-            Console.WriteLine("Nieprawidłowe ID.");
+            Console.WriteLine("Invalid ID.");
         }
     }
 
     static void RemoveTask(ITaskService service)
     {
-        Console.Write("Podaj ID zadania do usunięcia: ");
+        Console.Write("Enter the ID of the task to remove: ");
         if (int.TryParse(Console.ReadLine(), out int id))
         {
             service.Remove(id);
-            Console.WriteLine("Zadanie usunięte.");
+            Console.WriteLine("Task removed.");
         }
         else
         {
-            Console.WriteLine("Nieprawidłowe ID.");
+            Console.WriteLine("Invalid ID.");
         }
     }
 }
